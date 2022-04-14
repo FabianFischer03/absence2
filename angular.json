@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "absence2"
+  "defaultProject": "absence2",
+  "cli": {
+    "analytics": "be85e01e-7398-4d8e-b21b-f44c70428bb4"
+  }
 }
