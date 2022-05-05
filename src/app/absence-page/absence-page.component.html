@@ -1,11 +1,14 @@
 <div class="container-fluid">
     <div class="row" *ngFor="let absence of absences">
         <div class="col-6">
-        {{absence.ID}} {{ absence.reason }}
+            {{absence.ID}} {{ absence.reason }}
         </div>
         <div class="col-6">
-            {{absence.name}}
-            {{absence.date}}
+            {{absence.name}} {{absence.date}}
+            <button class="btn btn-danger" (click)="delete(absence.ID)">
+                Delete
+            </button>
         </div>
+
     </div>
 </div>

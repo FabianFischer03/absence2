@@ -24,4 +24,10 @@ export class AbsencePageComponent implements OnInit {
     console.log(this.absenceService.getAll());
   }
 
+  public delete(id: string) {
+    this.absenceService.delete(id).subscribe(res => {
+      console.log(res);
+    })
+  }
+
 }

@@ -17,7 +17,7 @@ export class AbsenceService {
     return this.http.get(environment.api_url+ "absence");
   }
 
-  /*public deleteOne(absenceId) {
-    this.http.delete(environment.api_url+ "absence/" + absenceId);
-  }*/
+  public delete(id) {
+    return this.http.delete(`${environment.api_url}absence/${id}` );
+  }
 }
