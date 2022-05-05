@@ -7,7 +7,8 @@ export const environment = {
   cognito: {
     userPoolId: "eu-central-1_bvqkheaWe",
     userPoolWebClientId: "773dkf7cj8eita3qplror81ptg"
-  }
+  },
+  api_url : "http://localhost:3001/"
 };
 
 /*

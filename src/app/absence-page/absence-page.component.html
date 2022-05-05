@@ -1,0 +1,11 @@
+<div class="container-fluid">
+    <div class="row" *ngFor="let absence of absences">
+        <div class="col-6">
+        {{absence.ID}} {{ absence.reason }}
+        </div>
+        <div class="col-6">
+            {{absence.name}}
+            {{absence.date}}
+        </div>
+    </div>
+</div>
