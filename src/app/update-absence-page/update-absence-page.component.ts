@@ -37,8 +37,8 @@ export class UpdateAbsencePageComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  public update(data) {
-    data = {
+  public update() {
+    let data = {
         date: this.reasonForm.controls.date.value,
         reason: this.reasonForm.controls.reason.value,
         status: this.reasonForm.controls.status.value

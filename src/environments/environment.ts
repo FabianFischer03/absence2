@@ -1,12 +1,27 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-
+//"Principal": { "AWS": "arn:aws:sts::AWS-account-ID:federated-user/user-name" }
 export const environment = {
   production: false,
-  cognito: {
-    userPoolId: "eu-central-1_bvqkheaWe",
-    userPoolWebClientId: "773dkf7cj8eita3qplror81ptg"
+  amplifyConfig: {
+    Auth: {
+      identityPoolId: 'eu-central-1:a88308ad-3458-45e1-8b1b-dbb5c18ce8ef',
+      region: "eu-central-1",
+      userPoolId: "eu-central-1_bvqkheaWe",
+      userPoolWebClientId: "773dkf7cj8eita3qplror81ptg"
+    },
+    AWSS3: {
+      bucket: 'ctsapprentice', //REQUIRED -  Amazon S3 bucket name
+      region: 'eu-central-1', //OPTIONAL -  Amazon service region
+      identityPoolId: "eu-central-1_bvqkheaWe"
+    },
+  },
+  S3: {
+    region: 'eu-central-1',
+    bucketName: 'ctsapprentice',
+    accessKey: 'AKIA3SYM7PSXBCV5HAPS',
+    secretKey: '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'
   },
   api_url : "http://localhost:3001/"
 };

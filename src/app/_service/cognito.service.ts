@@ -3,7 +3,6 @@ import { BehaviorSubject } from 'rxjs';
 import Amplify, { Auth } from 'aws-amplify';
 import { environment } from 'src/environments/environment';
 import { User } from '../_interfaces/user';
-import { rejects } from 'assert';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +12,7 @@ export class CognitoService {
   private authenticationSubject: BehaviorSubject<any>;
 
   constructor() {
-    Amplify.configure({
-      Auth: environment.cognito
-    });
+    Amplify.configure(environment.amplifyConfig);
     this.authenticationSubject = new BehaviorSubject<boolean>(false);
   }
 

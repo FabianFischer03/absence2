@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AbsencePageComponent } from './absence-page/absence-page.component';
 import { AuthComponent } from './auth/auth.component';
+import { CreateAbsenceComponent } from './create-absence/create-absence.component';
 import { GroupPageComponent } from './group-page/group-page.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SignInComponent } from './sign-in/sign-in.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: "group-page", component: GroupPageComponent },
   { path: "update-absence-page/:id", component: UpdateAbsencePageComponent },
   { path: "auth", component: AuthComponent },
+  { path: "create", component: CreateAbsenceComponent },
   { path: '**', redirectTo: 'sign-in' },
 ];
 

@@ -14,6 +14,7 @@ import { UpdateAbsencePageComponent } from './update-absence-page/update-absence
 import { ReactiveFormsModule } from '@angular/forms';
 import { AmplifyAuthenticatorModule } from '@aws-amplify/ui-angular';
 import { AuthComponent } from './auth/auth.component';
+import { CreateAbsenceComponent } from './create-absence/create-absence.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AuthComponent } from './auth/auth.component';
     AbsencePageComponent,
     GroupPageComponent,
     UpdateAbsencePageComponent,
-    AuthComponent
+    AuthComponent,
+    CreateAbsenceComponent
   ],
   imports: [
     BrowserModule,
