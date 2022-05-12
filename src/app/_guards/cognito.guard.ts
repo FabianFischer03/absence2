@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { first } from 'rxjs/operators';
 import { CognitoService } from '../_service/cognito.service';
 
 @Injectable({
@@ -8,21 +9,28 @@ import { CognitoService } from '../_service/cognito.service';
 })
 export class CognitoGuard implements CanActivate {
 
-  private loggedIn: boolean;
 
-  constructor(private cognitoService: CognitoService) {
+  constructor(private cognitoService: CognitoService, private router: Router) {
 
   }
 
   canActivate( route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    this.cognitoService.isAuthenticated()
+    return new Promise((resolve, reject) => {
+      this.cognitoService.isAuthenticated()
       .then((res) => {
-        this.loggedIn = res;
-      }).catch(() => {
-        this.loggedIn = false;
+        if (!res) {
+          this.router.navigate(['auth']);
+          resolve(false);
+        } else {
+          resolve(true);
+        }
+        console.log(3, res);
+      }).catch((err) => {
+        this.router.navigate(['auth']);
+        resolve(false);
       })
-
-    return this.loggedIn;
+    })
+  
   }
   
 }
