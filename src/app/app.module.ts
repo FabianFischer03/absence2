@@ -12,6 +12,8 @@ import { GroupPageComponent } from './group-page/group-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdateAbsencePageComponent } from './update-absence-page/update-absence-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AmplifyAuthenticatorModule } from '@aws-amplify/ui-angular';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -21,11 +23,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProfileComponent,
     AbsencePageComponent,
     GroupPageComponent,
-    UpdateAbsencePageComponent
+    UpdateAbsencePageComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    AmplifyAuthenticatorModule,
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule
