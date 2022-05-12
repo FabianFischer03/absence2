@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { SignInComponent } from './sign-in/sign-in.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { AbsencePageComponent } from './absence-page/absence-page.component';
@@ -19,8 +17,6 @@ import { CreateAbsenceComponent } from './create-absence/create-absence.componen
 @NgModule({
   declarations: [
     AppComponent,
-    SignUpComponent,
-    SignInComponent,
     ProfileComponent,
     AbsencePageComponent,
     GroupPageComponent,

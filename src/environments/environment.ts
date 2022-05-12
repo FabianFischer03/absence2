@@ -19,9 +19,7 @@ export const environment = {
   },
   S3: {
     region: 'eu-central-1',
-    bucketName: 'ctsapprentice',
-    accessKey: 'AKIA3SYM7PSXBCV5HAPS',
-    secretKey: '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'
+    bucketName: 'ctsapprentice'
   },
   api_url : "http://localhost:3001/"
 };

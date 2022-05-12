@@ -16,16 +16,16 @@ export class AuthComponent implements OnInit {
 
   public ngOnInit(): void {
     this.cognitoService.isAuthenticated()
-    .then((success: boolean) => {
-      this.isAuthenticated = success;
-    });
+      .then((success: boolean) => {
+        this.isAuthenticated = success;
+      });
   }
   
   public signOut(): void {
-    /*this.cognitoService.signOut()
+    this.cognitoService.signOut()
     .then(() => {
       this.router.navigate(['sign-in']);
-    });*/
+    });
   }
 
 }

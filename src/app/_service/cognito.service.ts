@@ -42,20 +42,20 @@ export class CognitoService {
   }
 
   public isAuthenticated(): Promise<any> {
-    if ( this.authenticationSubject.value) {
-      return Promise.resolve(true);
-    } else {
-      return this.getUser()
+    return new Promise((res, rej) => {
+      this.getUser()
         .then((user) => {
           if (user) {
-            return true;
+            res(true);
           } else {
-            return false;
+            res(false);
           }
-        }).catch(() => {
-          return false;
+        }).catch((err) => {
+          console.error(err);
+          rej(false)
         })
-    }
+    })
+
   }
 
   public getUser() {
