@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { AbsencePageComponent } from './absence-page/absence-page.component';
 import { GroupPageComponent } from './group-page/group-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AmplifyAuthenticatorModule } from '@aws-amplify/ui-angular';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +20,13 @@ import { HttpClientModule } from '@angular/common/http';
     SignInComponent,
     ProfileComponent,
     AbsencePageComponent,
-    GroupPageComponent
+    GroupPageComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    AmplifyAuthenticatorModule,
     HttpClientModule,
     AppRoutingModule
   ],

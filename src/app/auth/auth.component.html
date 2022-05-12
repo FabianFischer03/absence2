@@ -1,0 +1,13 @@
+<div class="container py-5">
+    <div class="row py-5">
+        <div class="col py-5">
+            <amplify-authenticator>
+                <ng-template amplifySlot="authenticated" let-user="user" let-signOut="signOut">
+                    <h1>Welcome {{ user.username }}!</h1>
+                    <button (click)="signOut()">Sign Out</button>
+                </ng-template>
+            </amplify-authenticator>
+        </div>
+    </div>
+
+</div>

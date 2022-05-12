@@ -13,7 +13,7 @@ export class AbsencePageComponent implements OnInit {
   constructor(private absenceService: AbsenceService) {
     this.absenceService.getAll().subscribe(absences => {
       this.absences = absences;
-      console.log(absences)
+      console.log(absences);
     })
   }
 
