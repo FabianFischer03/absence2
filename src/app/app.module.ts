@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { AbsencePageComponent } from './absence-page/absence-page.component';
 import { GroupPageComponent } from './group-page/group-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UpdateAbsencePageComponent } from './update-absence-page/update-absence-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,15 @@ import { HttpClientModule } from '@angular/common/http';
     SignInComponent,
     ProfileComponent,
     AbsencePageComponent,
-    GroupPageComponent
+    GroupPageComponent,
+    UpdateAbsencePageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

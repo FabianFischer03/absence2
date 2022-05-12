@@ -20,4 +20,8 @@ export class AbsenceService {
   public delete(id) {
     return this.http.delete(`${environment.api_url}absence/${id}` );
   }
+
+  public update(id, data) {
+    return this.http.put(`${environment.api_url}absence/${id}`, data );
+  }
 }

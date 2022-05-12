@@ -1,13 +1,15 @@
 <div class="container-fluid">
     <div class="row" *ngFor="let absence of absences">
         <div class="col-6">
-            {{absence.ID}} {{ absence.reason }}
+            {{absence.ID}} {{ absence.reason }} {{ absence.status }}
         </div>
         <div class="col-6">
             {{absence.name}} {{absence.date}}
             <button class="btn btn-danger" (click)="delete(absence.ID)">
                 Delete
             </button>
+            <button style="background-color: #0033a0;color: white;" class="btn pull-right" [routerLink]="['/update-absence-page', absence.ID]">Update</button>
+
         </div>
 
     </div>
