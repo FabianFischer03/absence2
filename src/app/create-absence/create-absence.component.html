@@ -1,6 +1,13 @@
-<div>
-    <input type="file" (change)="onChange($event)">
-</div>
-<div>
-    <button class="btn btn-success" (click)="create()">Upload</button>
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12">
+            <h1>Create Absence</h1>
+        </div>
+        <div class="col-8">
+            <input type="file" (change)="onChange($event)">
+        </div>
+        <div class="col-4">
+            <button class="btn btn-success btn-sm btn-block" (click)="create()">Upload</button>
+        </div>
+    </div>
 </div>

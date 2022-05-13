@@ -24,7 +24,7 @@ export class AuthComponent implements OnInit {
   public signOut(): void {
     this.cognitoService.signOut()
     .then(() => {
-      this.router.navigate(['sign-in']);
+      this.router.navigate(['auth']);
     });
   }
 

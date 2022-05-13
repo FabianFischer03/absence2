@@ -20,12 +20,14 @@ export class AbsencePageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public getAll() {
-    console.log(this.absenceService.getAll());
+  public formatDate(dateString: string) {
+    let date = new Date(dateString);
+    return `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`;
   }
 
   public delete(id: string) {
-    this.absenceService.delete(id).subscribe(res => {
+    this.absenceService.delete(id).subscribe((res:any) => {
+      alert(res.message);
       console.log(res);
     })
   }

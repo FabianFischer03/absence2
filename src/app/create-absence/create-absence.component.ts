@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AbsenceService } from '../_service/absence.service';
 import { CognitoService } from '../_service/cognito.service';
 
@@ -12,7 +13,7 @@ export class CreateAbsenceComponent implements OnInit {
   private uid;
   private toFile;
 
-  constructor(private absenceService: AbsenceService, private cognitoService: CognitoService) {
+  constructor(private absenceService: AbsenceService, private cognitoService: CognitoService, private router: Router) {
     this.cognitoService.getUser().then(user => {
       this.uid = user.username;
     })
@@ -26,6 +27,7 @@ export class CreateAbsenceComponent implements OnInit {
     this.absenceService.create(this.uid, this.toFile.item(0))
       .then((success:any) => {
         alert(success.message);
+        this.router.navigate(["/absence-page"]);
       }).catch(err => {
         console.error(err);
       })

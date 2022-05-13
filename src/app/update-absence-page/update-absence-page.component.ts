@@ -11,16 +11,17 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 export class UpdateAbsencePageComponent implements OnInit {
   public reasonForm:FormGroup;
   
-  public absences: any = [];
+  public id;
   public absence = {
     id: null,
     reason: null,
+    url: null,
     date: null,
     status: null,
   }
 
   constructor(private absenceService: AbsenceService, private route: ActivatedRoute, private formBuilder: FormBuilder) {
-    this.absence.id = this.route.snapshot.paramMap.get("id");
+    this.id = this.route.snapshot.paramMap.get("id");
     console.log(this.absence.id);
     this.reasonForm = this.formBuilder.group({
       reason: [null, [Validators.required]],
@@ -28,9 +29,13 @@ export class UpdateAbsencePageComponent implements OnInit {
       status:[null, [Validators.required]]
     });
 
-    this.absenceService.getAll().subscribe(absences => {
-      this.absences = absences;
-      console.log(absences)
+    this.absenceService.getOne(this.id).subscribe((absence:any) => {
+      this.absence = absence[0];
+      this.absence.id = this.id;
+      console.log(absence, this.absence);
+      this.reasonForm.controls.reason.setValue(this.absence.reason);
+      this.reasonForm.controls.date.setValue(this.absence.date.substring(0,10));
+      this.reasonForm.controls.status.setValue(this.absence.status);
     })
   }
 

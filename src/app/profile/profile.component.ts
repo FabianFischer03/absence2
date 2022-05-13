@@ -30,6 +30,7 @@ export class ProfileComponent implements OnInit {
     this.cognitoService.updateUser(this.user)
       .then(() => {
         this.loading = false;
+        alert("Updated User Info");
       }).catch(() => {
         this.loading = false;
       });

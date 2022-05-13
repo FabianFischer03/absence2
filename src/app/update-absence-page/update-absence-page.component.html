@@ -1,18 +1,27 @@
 <div class="container-fluid">
-    <div [formGroup]="reasonForm">
-        <br>
-        <label>Reason</label>
-        <input class="form-control" type="text" id="reason" name="reason" formControlName="reason">
-        <br>
-        <label>Date</label>
-        <input class="form-control" type="date" id="date" name="date" formControlName="date">
-        <br>
-        <label>Status</label>
-        <input class="form-control" type="text" id="status" name="status" formControlName="status">
-        <br>
-        <button style="background-color: #0033a0;color: white;" class="btn" (click)="update()">Update</button>
-        <button style="color: black;" class="btn" [routerLink]="['/absence-page']">
-            Back
-        </button>
+    <div class="row">
+        <div class="col">
+            <img src="https://ctsapprentice.s3.eu-central-1.amazonaws.com/{{absence.url}}" class="img-fluid">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div [formGroup]="reasonForm">
+                <br>
+                <label>Reason</label>
+                <input class="form-control" type="text" id="reason" name="reason" formControlName="reason">
+                <br>
+                <label>Date</label>
+                <input class="form-control" displayFormat="DD-MM-YYYY" type="date" id="date" name="date" formControlName="date">
+                <br>
+                <label>Status</label>
+                <input class="form-control" type="text" id="status" name="status" formControlName="status">
+                <br>
+                <button style="background-color: #0033a0;color: white;" class="btn" (click)="update()">Update</button>
+                <button style="color: black;" class="btn" [routerLink]="['/absence-page']">
+                    Back
+                </button>
+            </div>
+        </div>
     </div>
 </div>

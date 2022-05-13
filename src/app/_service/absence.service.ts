@@ -15,25 +15,24 @@ export class AbsenceService {
 
   public async create(uid, file) {
     return new Promise((res, rej) => {
-      Storage.put(file.name, file)
+      let fileName = Date.now() + "-" + file.name;
+      console.log(fileName);
+      Storage.put(fileName, file)
         .then(data => {
           console.log(data);
           this.http.post(`${environment.api_url}absence`, { uid: uid, key: `public/${data.key}` }).pipe(take(1)).subscribe(result => {
             console.log(result);
             res(result);
           })
-            /*.toPromise()
-            .then((data) => {
-              res(data);
-            }).catch((err) => {
-              console.error(2);
-              rej(err);
-            })*/
         }).catch((err)=> {
           console.error(1);
           rej(err);
         })
     })
+  }
+
+  public getOne(id) {
+    return this.http.get(`${environment.api_url}absence/${id}` );
   }
   
   public getAll() {
