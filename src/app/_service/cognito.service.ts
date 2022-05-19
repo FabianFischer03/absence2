@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import Amplify, { Auth } from 'aws-amplify';
+import Amplify, { Auth, Storage } from 'aws-amplify';
 import { environment } from 'src/environments/environment';
 import { User } from '../_interfaces/user';
+import { HttpClient } from '@angular/common/http';
+import { take } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +13,27 @@ export class CognitoService {
 
   private authenticationSubject: BehaviorSubject<any>;
 
-  constructor() {
+  constructor(private http: HttpClient) {
     Amplify.configure(environment.amplifyConfig);
     this.authenticationSubject = new BehaviorSubject<boolean>(false);
+  }
+
+  public async uploadSignature(uid, file) {
+    return new Promise((res, rej) => {
+      let fileName = "signature/" + Date.now() + "-" + file.name;
+      console.log(fileName);
+      Storage.put(fileName, file)
+        .then(data => {
+          console.log(data);
+          this.http.post(`${environment.api_url}signature`, { uid: uid, key: `public/${data.key}` }).pipe(take(1)).subscribe(result => {
+            console.log(result);
+            res(result);
+          })
+        }).catch((err)=> {
+          console.error(1);
+          rej(err);
+        })
+    })
   }
 
   public signUp(user: User): Promise<any> {
@@ -81,4 +101,5 @@ export class CognitoService {
         })
     })
   }
+
 }

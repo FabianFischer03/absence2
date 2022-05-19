@@ -21,7 +21,8 @@ export const environment = {
     region: 'eu-central-1',
     bucketName: 'ctsapprentice'
   },
-  api_url : "http://localhost:3001/"
+  //api_url : "http://localhost:3001/"
+  api_url: "https://ctwzuxt14a.execute-api.eu-central-1.amazonaws.com/"
 };
 
 /*
